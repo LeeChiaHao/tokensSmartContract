@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Token Contract Test</title>
+
+    <!-- Bootstrap -->
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="vendor/@truffle/contract/dist/truffle-contract.min.js"></script> -->
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <!-- As a heading -->
+    <nav class="navbar bg-success bg-opacity-50">
+        <div class="container-fluid">
+            <span class="h3 mx-auto my-2">Smart Contract Tokens</span>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row justify-content-center font-weight-bold h4 mb-0 text-center">
+            <button class="col col-lg-3 bg-white border-0 p-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#form721" aria-expanded="true" aria-controls="form721">
+                UUPS ERC721 Tokens
+            </button>
+            <button class="col col-lg-3 bg-info bg-opacity-50 p-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#form20" aria-expanded="true" aria-controls="form20">
+                UUPS ERC20 Tokens
+            </button>
+        </div>
+        <!-- ERC721 Tokens -->
+        <div class="row justify-content-center collapse mb-5" id="form721">
+            <div class="col col-lg-6 px-5 py-3 bg-primary bg-opacity-50">
+                <div class="input-group mb-3 text-wrap">
+                    <span class="input-group-text col-4 p-2">Token Name:</span>
+                    <input type="text" class="form-control" disabled value="LeeChiaHao">
+                </div>
+                <div class="input-group mb-3 text-wrap">
+                    <span class="input-group-text col-4 p-2">Token Symbol:</span>
+                    <input type="text" class="form-control" disabled>
+                </div>
+                <div class="input-group mb-3 text-wrap">
+                    <span class="input-group-text col-4 p-2">Current account address:</span>
+                    <input type="text" class="form-control" readonly>
+                </div>
+                <div class="input-group mb-3">
+                    <button class="btn btn-outline-primary bg-success text-white col-4" type="button" id="mint721">Mint
+                        Token</button>
+                    <input type="number" class="form-control" placeholder="Minted Token ID show here" disabled>
+                </div>
+                <div class="input-group mb-3">
+                    <button class="btn btn-outline-primary bg-success text-white col-4" type="button" id="burn721">Burn
+                        Token</button>
+                    <input type="number" class="form-control" placeholder="Token ID">
+                </div>
+                <div class="col-3 mx-auto mb-3">
+                    <button class="btn btn-danger mx-auto w-100">Pause</button>
+                </div>
+
+                <ul class="list-group list-group-flush mb-4">
+                    <li class="list-group-item list-group-item-info text-center">Token ID Owned</li>
+                    <li class="list-group-item">Token ID: 1</li>
+                    <li class="list-group-item">Token ID: 2</li>
+                    <li class="list-group-item">Token ID: 3</li>
+                </ul>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text col-4 p-2 text-wrap">Total Token minted:</span>
+                    <input type="text" class="form-control text-center" value="#" readonly>
+                </div>
+                <div class="col-4 mx-auto text-wrap">
+                    Total Token minted: #
+                </div>
+            </div>
+        </div>
+
+        <!-- ERC20 Tokens -->
+        <div class="row justify-content-center collapse show mb-5" id="form20">
+            <div class="col col-lg-6 px-5 py-3 bg-info bg-opacity-50">
+                <div class="input-group mb-3 text-wrap">
+                    <span class="input-group-text col-4 p-2">Token Name:</span>
+                    <input type="text" class="form-control" disabled value="LeeChiaHao">
+                </div>
+                <div class="input-group mb-3 text-wrap">
+                    <span class="input-group-text col-4 p-2">Token Symbol:</span>
+                    <input type="text" class="form-control" disabled>
+                </div>
+                <div class="input-group mb-3 text-wrap">
+                    <span class="input-group-text col-4 p-2">Current account address:</span>
+                    <input type="text" class="form-control" readonly>
+                </div>
+                <div class="input-group mb-3 text-wrap">
+                    <span class="input-group-text col-4 p-2">Balance of Tokens:</span>
+                    <input type="number" class="form-control" readonly>
+                </div>
+                <div class="input-group mb-3">
+                    <button class="btn btn-outline-primary bg-success text-white col-4" type="button" id="mint20">Mint
+                        Token</button>
+                    <input type="number" class="form-control" placeholder="amounts(Token)">
+                </div>
+                <h4>Transfer</h4>
+                <div class="input-group mb-3 text-wrap">
+                    <span class="input-group-text col-4 p-2">To account:</span>
+                    <input type="text" class="form-control" placeholder="address">
+                </div>
+                <div class="input-group mb-3 text-wrap">
+                    <span class="input-group-text col-4 p-2">Amount:</span>
+                    <input type="number" class="form-control" placeholder="amounts(Token)">
+                </div>
+                <div class="col-3 mx-auto mb-5">
+                    <button class="btn btn-success mx-auto w-100">Transfer</button>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text col-4 p-2 text-wrap">Total Token minted (Max: 1,000,000):</span>
+                    <input type="text" class="form-control text-center" value="#" readonly>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

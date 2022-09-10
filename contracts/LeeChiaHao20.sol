@@ -52,11 +52,32 @@ contract LeeChiaHao20 is
         returns (bool)
     {
         uint256 adjustAmount = amount * (10**uint256(18));
-        bool isTranfer = super.transfer(to, adjustAmount);
-        require(isTranfer == true);
-        uint256 burning = adjustAmount / 10; // burn 10% of transfer amount
-        _burn(to, burning);
+        super.transfer(to, adjustAmount);
+        partialBurn(to, adjustAmount);
         return true;
+    }
+
+    // override the transferFrom function and add partial burn function
+    function transferFrom(
+        address from,
+        address to,
+        uint256 amount
+    ) public override returns (bool) {
+        uint256 adjustAmount = amount * (10**uint256(18));
+        super.transferFrom(from, to, adjustAmount);
+        partialBurn(to, adjustAmount);
+        return true;
+    }
+
+    // burn 10 amount of transfer
+    function partialBurn(address account, uint256 amount) internal {
+        uint256 burn = amount / 10;
+        _burn(account, burn);
+    }
+
+    // return balance without the 18 decimals
+    function balanceOf(address account) public view override returns (uint256) {
+        return (super.balanceOf(account) / (10**uint256(18)));
     }
 
     function _authorizeUpgrade(address newImplementation)
