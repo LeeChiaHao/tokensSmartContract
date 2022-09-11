@@ -1,3 +1,14 @@
 .form-control {
     text-align: center;
 }
+
+div .bg-success:hover {
+    background-color: #99d73b !important;
+    text-decoration: underline;
+    color: black;
+    border: 2px solid black;
+}
+
+.input-group-text {
+    white-space: normal;
+}

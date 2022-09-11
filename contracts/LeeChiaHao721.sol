@@ -51,6 +51,10 @@ contract LeeChiaHao721 is
         _safeMint(to, tokenId);
     }
 
+    function getCounter() public view returns (uint256) {
+        return currentTokenId.current();
+    }
+
     function _beforeTokenTransfer(
         address from,
         address to,

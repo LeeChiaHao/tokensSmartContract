@@ -69,15 +69,10 @@ contract LeeChiaHao20 is
         return true;
     }
 
-    // burn 10 amount of transfer
+    // burn 10% amount of transfer
     function partialBurn(address account, uint256 amount) internal {
         uint256 burn = amount / 10;
         _burn(account, burn);
-    }
-
-    // return balance without the 18 decimals
-    function balanceOf(address account) public view override returns (uint256) {
-        return (super.balanceOf(account) / (10**uint256(18)));
     }
 
     function _authorizeUpgrade(address newImplementation)
