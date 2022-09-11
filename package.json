@@ -15,7 +15,10 @@
   "dependencies": {
     "@openzeppelin/contracts-upgradeable": "^4.7.3",
     "bootstrap": "^5.2.1",
-    "lite-server": "^2.6.1"
+    "dotenv": "^16.0.2",
+    "lite-server": "^2.6.1",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "truffle-plugin-verify": "^0.5.28"
   },
   "devDependencies": {
     "@openzeppelin/truffle-upgrades": "^1.16.0"
